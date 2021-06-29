@@ -1,0 +1,47 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "react-app",
+        "react-app/jest"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "react/prop-types": "warn",
+        "no-unused-vars": "warn",
+        "no-undef": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "import/no-anonymous-default-export": [
+            "warn",
+            {
+                "allowArray": false,
+                "allowArrowFunction": false,
+                "allowAnonymousClass": false,
+                "allowAnonymousFunction": false,
+                "allowCallExpression": true, // The true value here is for backward compatibility
+                "allowLiteral": false,
+                "allowObject": true
+            }
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect" // React version. "detect" automatically picks the version you have installed.
+        }
+    }
+}

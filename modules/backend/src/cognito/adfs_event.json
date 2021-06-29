@@ -1,0 +1,21 @@
+{
+    "version": "1",
+    "region": "ap-southeast-2",
+    "userPoolId": "ap-southeast-2_ghQBKhZ0u",
+    "userName": "cognitoadfstest_anthony.waye@cognitotest.local",
+    "callerContext": {
+        "awsSdkVersion": "aws-sdk-unknown-unknown",
+        "clientId": "5rns6717ak7rhharuhv9vcctag"
+    },
+    "triggerSource": "PostConfirmation_ConfirmSignUp",
+    "request": {
+        "userAttributes": {
+            "sub": "3282aed1-dc9f-4d06-90d3-f647bc91ec5c",
+            "email_verified": "false",
+            "cognito:user_status": "EXTERNAL_PROVIDER",
+            "identities": "[{\"userId\":\"anthony.waye@cognitotest.local\",\"providerName\":\"CognitoADFSTest\",\"providerType\":\"SAML\",\"issuer\":\"http://adfs.theonlywaye.com/adfs/services/trust\",\"primary\":true,\"dateCreated\":1623054503610}]",
+            "email": "anthony.waye@cognitotest.local"
+        }
+    },
+    "response": {}
+}

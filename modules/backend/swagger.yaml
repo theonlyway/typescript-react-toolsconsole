@@ -1,0 +1,1016 @@
+openapi: 3.0.2
+info:
+  title: '${gateway_name}'
+  description: '${description}'
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: anthonywaye@gmail.com
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: 'http://swagger.io'
+tags:
+  - name: Users
+    description: Everything to do with accounts
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: Vault
+    description: Everything to do with Vault
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: CORS
+    description: Options to enable CORS support
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+paths:
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Return a list of all accounts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllUsersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${hello_world_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+  /users/{id}:
+    get:
+      tags:
+        - Users
+      summary: Return a user account
+      parameters:
+        - name: id
+          in: path
+          description: id of the account to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${hello_world_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      parameters:
+        - name: id
+          in: path
+          description: id of the account to return
+          required: true
+          schema:
+            type: string
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+    delete:
+      tags:
+        - Users
+      summary: Delete a user account
+      parameters:
+        - name: id
+          in: path
+          description: id of the account to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllUsersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${hello_world_arn}'
+        httpMethod: POST
+    patch:
+      tags:
+        - Users
+      summary: Update a user account
+      parameters:
+        - name: id
+          in: path
+          description: id of the account to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllUsersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${hello_world_arn}'
+        httpMethod: POST
+  /users/{id}/roles:
+    get:
+      tags:
+        - Users
+      summary: List the the roles associated with a user.
+      parameters:
+        - name: id
+          in: path
+          description: id of the account to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllUsersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${hello_world_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      parameters:
+        - name: id
+          in: path
+          description: id of the account to return
+          required: true
+          schema:
+            type: string
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+    delete:
+      tags:
+        - Users
+      summary: Remove roles from a user
+      parameters:
+        - name: id
+          in: path
+          description: id of the account to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllUsersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${hello_world_arn}'
+        httpMethod: POST
+    post:
+      tags:
+        - Users
+      summary: Associate roles with a user
+      parameters:
+        - name: id
+          in: path
+          description: id of the account to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllUsersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${hello_world_arn}'
+        httpMethod: POST
+  /vault/sendsms:
+    post:
+      tags:
+        - Vault
+      summary: Send wrapped secret via SMS
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SendSmsBody"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllUsersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${send_sms_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+  /vault/oidc:
+    post:
+      tags:
+        - Vault
+      summary: Retreive the JWT to auth to Vault
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OidcAuthBody"
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${vault_oidc_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+  /vault/login:
+    post:
+      tags:
+        - Vault
+      summary: Exchange JWT for auth creds from Vault
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VaultAuthBody"
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${vault_oidc_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+  /vault/unwrap:
+    post:
+      tags:
+        - Vault
+      summary: Unwrap wrapped token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UnwrapBody"
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${vault_unwrap_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+  /vault/wrap:
+    post:
+      tags:
+        - Vault
+      summary: Wrap secrets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WrapBody"
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - jwt-rsa-custom-authorizer: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${vault_wrap_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+  /vault/lookup:
+    post:
+      tags:
+        - Vault
+      summary: Lookup wrapped token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UnwrapBody"
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        uri: '${vault_unwrap_arn}'
+        httpMethod: POST
+    options:
+      summary: CORS support
+      description: Enable CORS by returning correct headers
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key'''
+              method.response.header.Access-Control-Allow-Methods: '''*'''
+              method.response.header.Access-Control-Allow-Origin: '''*'''
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        '200':
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              description: CORS header
+              schema:
+                type: string
+            Access-Control-Allow-Origin:
+              description: CORS header
+              schema:
+                type: string
+components:
+  schemas:
+    SendSmsBody:
+      title: "Send wrapped secret SMS"
+      description: "Payload sending a wrapped secret via SMS"
+      type: "object"
+      required:
+        - "mobile_number"
+        - "wrapped_secret"
+      properties:
+        mobile_number:
+          type: "string"
+        wrapped_secret:
+          type: "string"
+    VaultAuthBody:
+      title: "Vault auth body"
+      description: "Payload for exchange JWT for auth cress from vault"
+      type: "object"
+      required:
+        - "id_token"
+      properties:
+        id_token:
+          type: "string"
+    UnwrapBody:
+      title: "Unwrap secret"
+      description: "Payload to unwrap secret"
+      type: "object"
+      required:
+        - "token"
+      properties:
+        token:
+          type: "string"
+    WrapBody:
+      title: "Wrap secret"
+      description: "Payload to wrap secret"
+      type: "object"
+      required:
+        - "client_token"
+        - "secret"
+        - "wrap_ttl"
+      properties:
+        client_token:
+          type: "string"
+        secret:
+          type: "string"
+          description: "JSON string to wrap"
+        wrap_ttl:
+          type: "string"
+    OidcAuthBody:
+      title: "OIDC Auth payload"
+      description: "Send OIDC code to for OIDC auth"
+      type: "object"
+      required:
+        - "code"
+        - "client_id"
+        - "scope"
+        - "redirect_uri"
+        - "grant_type"
+        - "resource"
+      properties:
+        code:
+          type: "string"
+        client_id:
+          type: "string"
+        scope:
+          type: "string"
+        redirect_uri:
+          type: "string"
+        grant_type:
+          type: "string"
+        resource:
+          type: "string"
+    AllUsersResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          user_id:
+            type: string
+          email:
+            type: string
+          email_verified:
+            type: boolean
+          username:
+            type: string
+          phone_number:
+            type: string
+          phone_verified:
+            type: boolean
+          created_at:
+            type: string
+          updated_at:
+            type: string
+          identities:
+            type: object
+          app_metadata:
+            type: object
+          user_metadata:
+            type: object
+          picture:
+            type: string
+          name:
+            type: string
+          nickname:
+            type: string
+          multifactor:
+            type: object
+          last_ip:
+            type: object
+          last_login:
+            type: object
+          logins_count:
+            type: integer
+          blocked:
+            type: boolean
+          given_name:
+            type: string
+          family_name:
+            type: string
+    UserResponse:
+      type: object
+      properties:
+          user_id:
+            type: string
+          email:
+            type: string
+          email_verified:
+            type: boolean
+          username:
+            type: string
+          phone_number:
+            type: string
+          phone_verified:
+            type: boolean
+          created_at:
+            type: string
+          updated_at:
+            type: string
+          identities:
+            type: object
+          app_metadata:
+            type: object
+          user_metadata:
+            type: object
+          picture:
+            type: string
+          name:
+            type: string
+          nickname:
+            type: string
+          multifactor:
+            type: object
+          last_ip:
+            type: object
+          last_login:
+            type: object
+          logins_count:
+            type: integer
+          blocked:
+            type: boolean
+          given_name:
+            type: string
+          family_name:
+            type: string
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        aws_request_id:
+          type: string
+  securitySchemes:
+    jwt-rsa-custom-authorizer:
+      type: "apiKey"
+      name: "Authorization"
+      in: "header"
+      x-amazon-apigateway-authtype: "custom"
+      x-amazon-apigateway-authorizer:
+        authorizerUri: '${jwtRsaCustomAuthorizer_invocation_arn}'
+        authorizerCredentials: "${jwtRsaCustomAuthorizer_iam_role_arn}"
+        authorizerResultTtlInSeconds: 0
+        identityValidationExpression: "^Bearer [-0-9a-zA-z\\.]*$"
+        type: "token"
+    api_key:
+      type: "apiKey"
+      name: "x-api-key"
+      in: "header"
+x-amazon-apigateway-request-validators:
+  full:
+    validateRequestBody: true
+    validateRequestParameters: true
+  body-only:
+    validateRequestBody: true
+    validateRequestParameters: false
+  param-only:
+    validateRequestBody: false
+    validateRequestParameters: true
+x-amazon-apigateway-request-validator: full

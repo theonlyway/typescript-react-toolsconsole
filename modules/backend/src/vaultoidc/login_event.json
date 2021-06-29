@@ -1,0 +1,98 @@
+{
+    "resource": "/vault/login",
+    "path": "/vault/login",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Authorization": "Bearer eyJraWQiOiIrNWF3REo5TWRXSEg3Q0hpU2FPdDJVbnkxd29CaldaU291VHdrN2lGY3dRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkOWViMDY2Zi04OWIwLTRhMDctYTM4Mi0xYjAxOWViZjJhNTciLCJhdWQiOiI1cm5zNjcxN2FrN3JoaGFydWh2OXZjY3RhZyIsImNvZ25pdG86Z3JvdXBzIjpbIkFkbWluaXN0cmF0b3JzIl0sImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6IjAxNzZiN2MxLTQxMDUtNDM0OC04MDkwLTlhZGJkMTcwZjRlOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjIyMjA2OTAxLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGhlYXN0LTIuYW1hem9uYXdzLmNvbVwvYXAtc291dGhlYXN0LTJfZ2hRQktoWjB1IiwiY29nbml0bzp1c2VybmFtZSI6ImQ5ZWIwNjZmLTg5YjAtNGEwNy1hMzgyLTFiMDE5ZWJmMmE1NyIsImV4cCI6MTYyMjIxMDUwMSwiaWF0IjoxNjIyMjA2OTAxLCJlbWFpbCI6ImFudGhvbnkud2F5ZUBhcnEuZ3JvdXAifQ.SCpnvIM0PGKjMKlkucic7nr_s8o8Y9fq1omKVDFJFxmsEhgWX_QiwpKCRN0NtV9r4f5pjEdf-ThKmEc0iszuK6JLENPlgpc0LhoG99iTFKTzk8mUWKfqOGT8kJOFYwF-IDj6TaC43RDlPn0Ig-9SEwQmqXjEKqMEx9XYJC1l_vQWuHWu5BpPoUReY3QTl_9NOyLBkpuJLlXjWAIgCGnlNPpAzEehG0OcyM_hJg3MZQDeQgHCewiM2d_uH_V26FZ1ZaG8yyFVGjmo0EJCYGDpLJD7dmzmUIEEMUKdI_n5g_fRJknt4xx2ZnsA6JNXr85lHd_uDQUFUbJMMw6rg2bk-w",
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json",
+        "Host": "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com",
+        "Postman-Token": "97a9e88c-a962-4279-9a7c-cc2e9ac2b07d",
+        "User-Agent": "PostmanRuntime/7.28.0",
+        "X-Amzn-Trace-Id": "Root=1-60b0ea23-29649ac70954cb3c63e0418d",
+        "X-Forwarded-For": "124.185.42.14",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "*/*"
+        ],
+        "Accept-Encoding": [
+            "gzip, deflate, br"
+        ],
+        "Authorization": [
+            "Bearer eyJraWQiOiIrNWF3REo5TWRXSEg3Q0hpU2FPdDJVbnkxd29CaldaU291VHdrN2lGY3dRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkOWViMDY2Zi04OWIwLTRhMDctYTM4Mi0xYjAxOWViZjJhNTciLCJhdWQiOiI1cm5zNjcxN2FrN3JoaGFydWh2OXZjY3RhZyIsImNvZ25pdG86Z3JvdXBzIjpbIkFkbWluaXN0cmF0b3JzIl0sImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6IjAxNzZiN2MxLTQxMDUtNDM0OC04MDkwLTlhZGJkMTcwZjRlOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjIyMjA2OTAxLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGhlYXN0LTIuYW1hem9uYXdzLmNvbVwvYXAtc291dGhlYXN0LTJfZ2hRQktoWjB1IiwiY29nbml0bzp1c2VybmFtZSI6ImQ5ZWIwNjZmLTg5YjAtNGEwNy1hMzgyLTFiMDE5ZWJmMmE1NyIsImV4cCI6MTYyMjIxMDUwMSwiaWF0IjoxNjIyMjA2OTAxLCJlbWFpbCI6ImFudGhvbnkud2F5ZUBhcnEuZ3JvdXAifQ.SCpnvIM0PGKjMKlkucic7nr_s8o8Y9fq1omKVDFJFxmsEhgWX_QiwpKCRN0NtV9r4f5pjEdf-ThKmEc0iszuK6JLENPlgpc0LhoG99iTFKTzk8mUWKfqOGT8kJOFYwF-IDj6TaC43RDlPn0Ig-9SEwQmqXjEKqMEx9XYJC1l_vQWuHWu5BpPoUReY3QTl_9NOyLBkpuJLlXjWAIgCGnlNPpAzEehG0OcyM_hJg3MZQDeQgHCewiM2d_uH_V26FZ1ZaG8yyFVGjmo0EJCYGDpLJD7dmzmUIEEMUKdI_n5g_fRJknt4xx2ZnsA6JNXr85lHd_uDQUFUbJMMw6rg2bk-w"
+        ],
+        "Cache-Control": [
+            "no-cache"
+        ],
+        "Content-Type": [
+            "application/json"
+        ],
+        "Host": [
+            "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com"
+        ],
+        "Postman-Token": [
+            "97a9e88c-a962-4279-9a7c-cc2e9ac2b07d"
+        ],
+        "User-Agent": [
+            "PostmanRuntime/7.28.0"
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-60b0ea23-29649ac70954cb3c63e0418d"
+        ],
+        "X-Forwarded-For": [
+            "124.185.42.14"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "yz0rif",
+        "authorizer": {
+            "groups": "Administrators",
+            "principalId": "d9eb066f-89b0-4a07-a382-1b019ebf2a57",
+            "integrationLatency": 288
+        },
+        "resourcePath": "/vault/login",
+        "httpMethod": "POST",
+        "extendedRequestId": "ACmFnG1ESwMFdjA=",
+        "requestTime": "28/May/2021:13:03:31 +0000",
+        "path": "/console/vault/login",
+        "accountId": "646801089018",
+        "protocol": "HTTP/1.1",
+        "stage": "console",
+        "domainPrefix": "qoexsejvkl",
+        "requestTimeEpoch": 1622207011795,
+        "requestId": "3b9f1468-d6e9-4ae6-9c7f-e0b2134d0fdd",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "124.185.42.14",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "PostmanRuntime/7.28.0",
+            "user": null
+        },
+        "domainName": "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com",
+        "apiId": "qoexsejvkl"
+    },
+    "body": "{\r\n    \"id_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5yMXZHMEdVNVQzTkI2V2k3MzMtQ0RjUnhSUSIsImtpZCI6Ik5yMXZHMEdVNVQzTkI2V2k3MzMtQ0RjUnhSUSJ9.eyJhdWQiOiJhNmE3MzUyYi04NzVkLTRkYmUtYjg2Zi05NjU5MWUxMjg1NDgiLCJpc3MiOiJodHRwczovL2ZlZGVyYXRpb24uYXJxLmdyb3VwL2FkZnMiLCJpYXQiOjE2MjIyMDY5MTcsImV4cCI6MTYyMjIxMDUxNywiYXV0aF90aW1lIjoxNjIyMTg3MjA5LCJtZmFfYXV0aF90aW1lIjoxNjIyMTg3MjIxLCJub25jZSI6ImZiZWVkMzY1LWM1NDAtNDQ2MS1iZmJkLWVkYTAxNzk1MmQ3OCIsInN1YiI6ImFpQmFUcVdTSkZxcjEyUWhYWVhYYkNqUEt2a3dmMytjVzVaYXVlbmpIWlE9IiwidXBuIjoiYW50aG9ueS53YXllQGFycS5ncm91cCIsInVuaXF1ZV9uYW1lIjoiQVJRR1JPVVBcXGFudGhvbnkud2F5ZSIsInB3ZF91cmwiOiJodHRwczovL2ZlZGVyYXRpb24uYXJxLmdyb3VwL2FkZnMvcG9ydGFsL3VwZGF0ZXBhc3N3b3JkLyIsInNpZCI6IlMtMS01LTIxLTI1MjE1OTcyMDItNDcwNzQ1NTIwLTEzNTU1NTM5OTgtNDk5MCIsImVtYWlsIjoiYW50aG9ueS53YXllQGFycS5ncm91cCIsImdyb3VwcyI6WyJEb21haW4gVXNlcnMiLCJPMzY1U0FMIC0gT2ZmaWNlIDM2NSBFbnRlcnByaXNlIEUzIiwiUFBFIEV4dGVuZGVkIE1heGltdW0gQWdlIFVzZXJzIiwiTUJBTSAtIERhdGFiYXNlIFJlYWQiLCJNSVRBVUNTUC1NSVRfQ3VzdG9tZXJfRVMtQWRtaW4iLCJBREZTIC0gQ2xvdWRIZWFsdGggLSBQb3dlciBVc2VycyIsIkFERlMgLSBDbG91ZEhlYWx0aCAtIFN0YW5kYXJkIFVzZXJzIiwiTUlUQVVDU1AtTUlUX0N1c3RvbWVyX0FSUVZTVFMtQURPQWRtaW5zIiwiX00zIC0gVENBQiBSZXZpZXciLCJBREZTIC0gU3BsdW5rIC0gVXNlcnMiLCJPMzY1U0FMIC0gT2ZmaWNlIDM2NSBFbnRlcnByaXNlIEUzIC0gUGhvbmUgU3lzdGVtIEFkZCBPbiIsIl9FbnRlcnByaXNlIC0gTWFuYWdlZCBTZXJ2aWNlcyIsIk1JVEFVQ1NQLU1JVF9DdXN0b21lcl9FUy1TdGFmZi1BY2NvdW50cyIsIl9FbnRlcnByaXNlIC0gTWFuYWdlZCBTZXJ2aWNlcyAtIEJORSIsIl9FbnRlcnByaXNlIC0gQnJpc2JhbmUiLCJfRW50ZXJwcmlzZSAtIEFsbCIsIk1JVEFVQ1NQLU1JVF9DdXN0b21lcl9BWjIwLUFET19UZXN0IiwiTUlUQVVDU1AtTUlUX0N1c3RvbWVyX0FaMTYtQXpkb0FycUdyb3VwLUxpY2Vuc2VkIiwiTUlUQVVDU1AtTUlUX0N1c3RvbWVyX0FaMTYtQXpkb0FycUdyb3VwSW50LUFkbWlucyIsIk1JVEFVQ1NQLU1JVF9DdXN0b21lcl9BWjE2LUF6ZG9BcnFHcm91cEludC1MaWNlbnNlZCIsIkFERlMgLSBEeW5hdHJhY2UgU1NPIEFjY2VzcyIsIk1lcmFraSBBY2Nlc3MgLSBDbGllbnQgVlBOIiwiQVdTQWNjZXNzLVNlY0NsZWFyYW5jZSIsIkppcmEtVXNlciIsIl9FbnRlcnByaXNlIC0gTWFuYWdlZCBTZXJ2aWNlcyAtIE1pY3Jvc29mdCBIb3N0aW5nIFRlYW0iLCJBV1NBY2Nlc3MtRVNSZWFkT25seSIsIkFXU0FjY2Vzcy1Eb21pbm9zIiwiQVdTQWNjZXNzLUVTQWRtaW4iLCJDb25mbHVlbmNlLUJUIiwiQ29uZmx1ZW5jZS1TeXNhZG1pbiIsIkNvbmZsdWVuY2UtVXNlciIsIk1JVEFVQ1NQLU1JVF9DdXN0b21lcl9BWjMxLVRyb2JleGlzLU5PTlBST0QtQWRtaW5zIiwiTUlUQVVDU1AtTUlUX0N1c3RvbWVyX0FaMzctVHJvYmV4aXMtUFJPRC1BZG1pbnMiLCJBRE8tSW5mcmEtVXNlcnMiLCJBUlFBVUNTUF9DdXN0b21lcl9BWjIwLUFET19UZXN0IiwiQVJRQVVDU1BfQ3VzdG9tZXJfQVozMC1Ucm9iZXhpcy1BZG1pbnMiLCJBUlFBVUNTUF9DdXN0b21lcl9FUy1TdGFmZi1BY2NvdW50cyIsIkFSUUFVQ1NQX0N1c3RvbWVyX0FaMzUtTkNJLUFkbWlucyIsIkFSUUFVQ1NQX0N1c3RvbWVyX0VTLUFkbWluIiwiQVJRQVVDU1BfQ3VzdG9tZXJfQVozMS1Ucm9iZXhpcy1OT05QUk9ELUFkbWlucyIsIkFSUUFVQ1NQX0N1c3RvbWVyX0FaMzctVHJvYmV4aXMtUFJPRC1BZG1pbnMiLCJfRW50ZXJwcmlzZSAtIFByaW9yaXR5IFNlcnZpY2VzIENhbGwgUXVldWUgLSBvdmVyZmxvdyIsIk1JVEFVQ1NQLU1JVF9DdXN0b21lcl9BWjMwLVRyb2JleGlzLUFkbWlucyIsIk1JVEFVQ1NQLU1JVF9DdXN0b21lcl9BWjM1LU5DSS1EZXYtQWRtaW5zIiwiQURPLUluZnJhLUFkbWluIiwiX0FSUSAtIEFXUyBBY2NvdW50cyIsIl9DdXN0b21lciBPcHMgLSBTb2x1dGlvbiBSZWxpYWJpbGl0eSBFbmdpbmVlcmluZyIsIl9DdXN0b21lciBPcHMgLSBTb2x1dGlvbiBSZWxpYWJpbGl0eSBhbmQgU3VwcG9ydCIsIlVuaWZpIEFjY2VzcyAtIENsaWVudCBWUE4iLCJVbmlmaSBBY2Nlc3MgLSBXaXJlZCBcdTAwMjYgV2lyZWxlc3MiXSwiYXBwdHlwZSI6IkNvbmZpZGVudGlhbCIsImFwcGlkIjoiYTZhNzM1MmItODc1ZC00ZGJlLWI4NmYtOTY1OTFlMTI4NTQ4IiwiYXV0aG1ldGhvZCI6InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDphYzpjbGFzc2VzOlBhc3N3b3JkUHJvdGVjdGVkVHJhbnNwb3J0IiwidmVyIjoiMS4wIiwic2NwIjoib3BlbmlkIn0.Nr3s2tFR-YAobpKRhKbB4-rhpQc7S_xMreuocxIwK-ERx2rJMEOJ0UWRCiMcAICN93_v_rdHi8V43Zo6zp7k-KKiCHLFfDESOk-gezOBwFUNTO99wzz0yQqidsgTnM7zPcbZSCVkPrY-ANNnHB9Kge68t4CVhhQY7HitHJBshe0qAQWsUZiBL2wLwGGnDMGzeswIhDkyQWXimTS41gewKMq5P3YyMzcTkPpmwsQC2ghCsIHLrBXDjC8R6KGpXmocFZbDVy-h4pJd8ejxitrlaHHajyzGOivunCfSKBJZAX_DThGtQsiQ1wlnVc_fjdS_MZjU0KWBzKEv8zjyAH8seA\"\r\n}",
+    "isBase64Encoded": false
+}

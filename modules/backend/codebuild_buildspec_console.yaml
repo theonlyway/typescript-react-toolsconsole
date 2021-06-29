@@ -1,0 +1,56 @@
+version: 0.2
+env:
+    variables:
+        RECAPTCHA_V2_SITE_KEY: "${RECAPTCHA_V2_SITE_KEY}"
+        VAULT_API_URL: "${VAULT_API_URL}"
+        CONSOLE_BUCKET_NAME: "${CONSOLE_BUCKET_NAME}"
+        ARTIFACT_BUCKET_NAME: "${ARTIFACT_BUCKET_NAME}"
+        AWS_CONGITO_IDENTITY_POOL_ID: "${AWS_CONGITO_IDENTITY_POOL_ID}"
+        AWS_COGNITO_USER_POOLS_ID: "${AWS_COGNITO_USER_POOLS_ID}"
+        AWS_COGNITO_USER_POOLS_WEB_CLIENT_ID: "${AWS_COGNITO_USER_POOLS_WEB_CLIENT_ID}"
+        AWS_COGNITO_USER_POOLS_DOMAIN: "${AWS_COGNITO_USER_POOLS_DOMAIN}"
+        AWS_COGNITO_IDENTITY_PROVIDER: "${AWS_COGNITO_IDENTITY_PROVIDER}"
+        API_ENDPOINT: "${API_ENDPOINT}"
+        CONSOLE_CLOUDFRONT_DIST_ID: "${CONSOLE_CLOUDFRONT_DIST_ID}"
+        CONSOLE_URL: "${CONSOLE_URL}"
+        CONSOLE_URL_NO_TRAILING_SLASH: "${CONSOLE_URL_NO_TRAILING_SLASH}"
+        CONSOLE_UNAUTH_API_KEY: "${CONSOLE_UNAUTH_API_KEY}"
+        OIDC_BASE_URL: "${OIDC_BASE_URL}"
+        OIDC_RESOURCE_ID: "${OIDC_RESOURCE_ID}"
+        OIDC_CLIENT_ID: "${OIDC_CLIENT_ID}"
+phases:
+    install:
+        runtime-versions:
+            nodejs: latest
+        commands:
+            - cd tools-console
+            - npm install
+    pre_build:
+        commands:
+            - echo $CONSOLE_BUCKET_NAME
+            - echo $ARTIFACT_BUCKET_NAME
+            - echo $AWS_CONGITO_IDENTITY_POOL_ID
+            - echo $AWS_COGNITO_USER_POOLS_ID
+            - echo $AWS_COGNITO_USER_POOLS_WEB_CLIENT_ID
+            - echo $AWS_COGNITO_USER_POOLS_DOMAIN
+            - echo $AWS_COGNITO_IDENTITY_PROVIDER
+            - echo $API_ENDPOINT
+            - echo $CONSOLE_CLOUDFRONT_DIST_ID
+            - echo $CONSOLE_URL
+            - echo $VAULT_API_URL
+            - echo $OIDC_BASE_URL
+    build:
+        on-failure: ABORT
+        commands:
+            - npm run build
+            - chmod +x aws_config.sh
+            - mv aws_config.sh $CODEBUILD_SRC_DIR/tools-console/build/aws_config.sh
+            - cd $CODEBUILD_SRC_DIR/tools-console/build
+            - ./aws_config.sh
+            - cat $CODEBUILD_SRC_DIR/tools-console/build/assets/aws_config.js
+            - rm aws_config.sh
+            - aws s3 sync . s3://$CONSOLE_BUCKET_NAME --delete --cache-control 'max-age=31536000' --exclude 'public/*' --exclude index.html
+            - aws s3 sync . s3://$CONSOLE_BUCKET_NAME --cache-control 'no-cache' --exclude '*' --include index.html
+    post_build:
+        commands:
+            - aws cloudfront create-invalidation --distribution-id $CONSOLE_CLOUDFRONT_DIST_ID --paths "/*"

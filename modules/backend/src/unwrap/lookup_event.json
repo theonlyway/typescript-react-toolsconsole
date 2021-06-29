@@ -1,0 +1,95 @@
+{
+    "resource": "/vault/lookup",
+    "path": "/vault/lookup",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json",
+        "Host": "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com",
+        "Postman-Token": "518600fc-5ecc-4147-87f7-b92299c6a006",
+        "User-Agent": "PostmanRuntime/7.28.0",
+        "X-Amzn-Trace-Id": "Root=1-60b0a86d-163295574f5ce5f939e1b064",
+        "x-api-key": "4mwwE2D14e23eeLlKtDrG4BOSuLIz7JP7laoy1a0",
+        "X-Forwarded-For": "124.185.42.14",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "*/*"
+        ],
+        "Accept-Encoding": [
+            "gzip, deflate, br"
+        ],
+        "Cache-Control": [
+            "no-cache"
+        ],
+        "Content-Type": [
+            "application/json"
+        ],
+        "Host": [
+            "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com"
+        ],
+        "Postman-Token": [
+            "518600fc-5ecc-4147-87f7-b92299c6a006"
+        ],
+        "User-Agent": [
+            "PostmanRuntime/7.28.0"
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-60b0a86d-163295574f5ce5f939e1b064"
+        ],
+        "x-api-key": [
+            "4mwwE2D14e23eeLlKtDrG4BOSuLIz7JP7laoy1a0"
+        ],
+        "X-Forwarded-For": [
+            "124.185.42.14"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "x0rod4",
+        "resourcePath": "/vault/lookup",
+        "httpMethod": "POST",
+        "extendedRequestId": "AB9BMGOzSwMFluQ=",
+        "requestTime": "28/May/2021:08:23:09 +0000",
+        "path": "/console/vault/lookup",
+        "accountId": "646801089018",
+        "protocol": "HTTP/1.1",
+        "stage": "console",
+        "domainPrefix": "qoexsejvkl",
+        "requestTimeEpoch": 1622190189892,
+        "requestId": "9d61962d-b931-4a30-8d87-15743c5f598a",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "cognitoIdentityId": null,
+            "apiKey": "4mwwE2D14e23eeLlKtDrG4BOSuLIz7JP7laoy1a0",
+            "principalOrgId": null,
+            "cognitoAuthenticationType": null,
+            "userArn": null,
+            "apiKeyId": "xuvzm94ckb",
+            "userAgent": "PostmanRuntime/7.28.0",
+            "accountId": null,
+            "caller": null,
+            "sourceIp": "124.185.42.14",
+            "accessKey": null,
+            "cognitoAuthenticationProvider": null,
+            "user": null
+        },
+        "domainName": "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com",
+        "apiId": "qoexsejvkl"
+    },
+    "body": "{\r\n\"token\": \"s.79wfwepVDf8KRjHAJMB2b524\"\r\n}",
+    "isBase64Encoded": false
+}

@@ -1,0 +1,130 @@
+{
+    "resource": "/vault/wrap",
+    "path": "/vault/wrap",
+    "httpMethod": "POST",
+    "headers": {
+        "accept": "application/json, text/plain, */*",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": "en-US,en;q=0.9",
+        "Authorization": "Bearer eyJraWQiOiJuQ3RxaThRVlwvTGhcL25OM0ZzRG1FaFI4TUp0NGkzbG5wVmU3RXgzY0pIOTg9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJkOWViMDY2Zi04OWIwLTRhMDctYTM4Mi0xYjAxOWViZjJhNTciLCJjb2duaXRvOmdyb3VwcyI6WyJBZG1pbmlzdHJhdG9ycyJdLCJldmVudF9pZCI6IjE2Y2M4NjIxLTY3NjYtNDExZi05MjU5LTljMGNhNzljNjk2ZiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2MjI0MjY4NzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aGVhc3QtMi5hbWF6b25hd3MuY29tXC9hcC1zb3V0aGVhc3QtMl9naFFCS2haMHUiLCJleHAiOjE2MjI0MzYyODYsImlhdCI6MTYyMjQzMjY4NiwianRpIjoiODVkNzYyNmUtMWYwNi00MTBmLThkNTItNjI1MTQ3ZTRjYWNjIiwiY2xpZW50X2lkIjoiNXJuczY3MTdhazdyaGhhcnVodjl2Y2N0YWciLCJ1c2VybmFtZSI6ImQ5ZWIwNjZmLTg5YjAtNGEwNy1hMzgyLTFiMDE5ZWJmMmE1NyJ9.JAkNK6qX4g9GaPV_dS3SFi_pAdr6hzM9R4toWk7ZftVc1mf4HKfCRjMyx2gyTHW-_8k0ZPS3GwSLGa011Do9zJvNcqGdttHHQLvCNy76C2YeFAEzNm7ur-xQShUegRW-vclxsYyKPY_A2kBrUCyvEsdIC7JGZGBeegum0ASAyVQmGP-9Jp6vB_ClVpoJvBLrcqOQUcHlX9iJNVpxFXse5szr291AdidtyeK2YqkAy3qd-LRwM5Gp-_2bv1OlRcg_kpUwWD3bkj7PSlN5NkBpJUqOnstdl1mAoIOJnhkntiF-Yoihg4vDJ7QRerXCGSobE-gIV6fY_Jux9RAcTZebwg",
+        "content-type": "application/json; charset=UTF-8",
+        "dnt": "1",
+        "Host": "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com",
+        "origin": "http://localhost:3000",
+        "referer": "http://localhost:3000/",
+        "sec-ch-ua": "\" Not;A Brand\";v=\"99\", \"Microsoft Edge\";v=\"91\", \"Chromium\";v=\"91\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "sec-gpc": "1",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36 Edg/91.0.864.37",
+        "X-Amzn-Trace-Id": "Root=1-60b46870-1a69d9de136580fd78a53438",
+        "X-Forwarded-For": "121.222.198.30",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "accept": [
+            "application/json, text/plain, */*"
+        ],
+        "accept-encoding": [
+            "gzip, deflate, br"
+        ],
+        "accept-language": [
+            "en-US,en;q=0.9"
+        ],
+        "Authorization": [
+            "Bearer eyJraWQiOiJuQ3RxaThRVlwvTGhcL25OM0ZzRG1FaFI4TUp0NGkzbG5wVmU3RXgzY0pIOTg9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJkOWViMDY2Zi04OWIwLTRhMDctYTM4Mi0xYjAxOWViZjJhNTciLCJjb2duaXRvOmdyb3VwcyI6WyJBZG1pbmlzdHJhdG9ycyJdLCJldmVudF9pZCI6IjE2Y2M4NjIxLTY3NjYtNDExZi05MjU5LTljMGNhNzljNjk2ZiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2MjI0MjY4NzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aGVhc3QtMi5hbWF6b25hd3MuY29tXC9hcC1zb3V0aGVhc3QtMl9naFFCS2haMHUiLCJleHAiOjE2MjI0MzYyODYsImlhdCI6MTYyMjQzMjY4NiwianRpIjoiODVkNzYyNmUtMWYwNi00MTBmLThkNTItNjI1MTQ3ZTRjYWNjIiwiY2xpZW50X2lkIjoiNXJuczY3MTdhazdyaGhhcnVodjl2Y2N0YWciLCJ1c2VybmFtZSI6ImQ5ZWIwNjZmLTg5YjAtNGEwNy1hMzgyLTFiMDE5ZWJmMmE1NyJ9.JAkNK6qX4g9GaPV_dS3SFi_pAdr6hzM9R4toWk7ZftVc1mf4HKfCRjMyx2gyTHW-_8k0ZPS3GwSLGa011Do9zJvNcqGdttHHQLvCNy76C2YeFAEzNm7ur-xQShUegRW-vclxsYyKPY_A2kBrUCyvEsdIC7JGZGBeegum0ASAyVQmGP-9Jp6vB_ClVpoJvBLrcqOQUcHlX9iJNVpxFXse5szr291AdidtyeK2YqkAy3qd-LRwM5Gp-_2bv1OlRcg_kpUwWD3bkj7PSlN5NkBpJUqOnstdl1mAoIOJnhkntiF-Yoihg4vDJ7QRerXCGSobE-gIV6fY_Jux9RAcTZebwg"
+        ],
+        "content-type": [
+            "application/json; charset=UTF-8"
+        ],
+        "dnt": [
+            "1"
+        ],
+        "Host": [
+            "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com"
+        ],
+        "origin": [
+            "http://localhost:3000"
+        ],
+        "referer": [
+            "http://localhost:3000/"
+        ],
+        "sec-ch-ua": [
+            "\" Not;A Brand\";v=\"99\", \"Microsoft Edge\";v=\"91\", \"Chromium\";v=\"91\""
+        ],
+        "sec-ch-ua-mobile": [
+            "?0"
+        ],
+        "sec-fetch-dest": [
+            "empty"
+        ],
+        "sec-fetch-mode": [
+            "cors"
+        ],
+        "sec-fetch-site": [
+            "cross-site"
+        ],
+        "sec-gpc": [
+            "1"
+        ],
+        "User-Agent": [
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36 Edg/91.0.864.37"
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-60b46870-1a69d9de136580fd78a53438"
+        ],
+        "X-Forwarded-For": [
+            "121.222.198.30"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "d8i1ff",
+        "authorizer": {
+            "groups": "Administrators",
+            "principalId": "d9eb066f-89b0-4a07-a382-1b019ebf2a57",
+            "integrationLatency": 684
+        },
+        "resourcePath": "/vault/wrap",
+        "httpMethod": "POST",
+        "extendedRequestId": "ALVBoGFVSwMFzlA=",
+        "requestTime": "31/May/2021:04:39:12 +0000",
+        "path": "/console/vault/wrap",
+        "accountId": "646801089018",
+        "protocol": "HTTP/1.1",
+        "stage": "console",
+        "domainPrefix": "qoexsejvkl",
+        "requestTimeEpoch": 1622435952611,
+        "requestId": "e32dc278-bac4-4c1e-8d37-09d6070c3992",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "121.222.198.30",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36 Edg/91.0.864.37",
+            "user": null
+        },
+        "domainName": "qoexsejvkl.execute-api.ap-southeast-2.amazonaws.com",
+        "apiId": "qoexsejvkl"
+    },
+    "body": "{\"client_token\":\"s.jHnBSyoNVNQfTUtlO4CmvFZQ\",\"secret\":\"{\\\"sadas\\\":\\\"dasdasda\\\",\\\"asdasdasdas\\\":\\\"dasdasdas\\\"}\",\"wrap_ttl\":\"24h\"}",
+    "isBase64Encoded": false
+}
