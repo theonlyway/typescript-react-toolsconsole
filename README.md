@@ -1,3 +1,43 @@
+## Local development
+* [Install Node.js](https://nodejs.org/en/)
+* Install packages
+```
+cd tools-console
+npm install
+```
+* Switch these lines around in these files so they match the below
+    - [tools-console/src/index.tsx](tools-console/src/index.tsx)
+    - [tools-console/src/redux/reducers/general.tsx](tools-console/src/redux/reducers/general.tsx)
+```typescript
+import awsConfig from './aws_config'
+//declare var awsConfig: IAwsConfig;
+```
+* If there is no development enivonrment already setup where you can get the configuration for the template for the configuration is stored in [tools-console/aws_config.sh](tools-console/aws_config.sh). You can use that template and fill out the values yourself manually
+* At the top of [tools-console/src/aws_config.tsx](tools-console/src/aws_config.tsx) put the following
+```typescript
+import { IAwsConfig } from './types/awsconfig'
+```
+* Change the line where the const is specified to the following
+```typescript
+export const awsConfig: IAwsConfig = {
+```
+* At the end of [tools-console/src/aws_config.tsx](tools-console/src/aws_config.tsx) put the following
+```typescript
+export default awsConfig
+```
+* Change the `redirectSignIn` and `redirectSignOut` values in [tools-console/src/aws_config.tsx](tools-console/src/aws_config.tsx) to the following
+```
+"redirectSignIn": "http://localhost:3000/",
+"redirectSignOut": "http://localhost:3000/",
+```
+* Navigate to the development Cognito User Pool
+    - Navigate to `App client settings`
+    - Add `http://localhost:3000/` to both the `Callback URL(s)` and `Sign out URL(s)` and then `Save changes`
+    - Be sure to remove them once done
+* Start the local development server
+```
+npm start
+```
 ## Requirements
 
 | Name | Version |
